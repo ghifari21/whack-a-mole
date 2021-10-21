@@ -10,6 +10,10 @@ h2 {
   margin: 10px;
 }
 
+table {
+  margin: auto;
+}
+
 button {
   display: block;
   margin: auto;
