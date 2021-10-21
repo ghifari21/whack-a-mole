@@ -36,27 +36,22 @@ function setRatToAppear() {
 function play() {
   FINISH = false;
   SCORE = 0;
+  scoreboard.textContent = SCORE;
   setRatToAppear();
   var timeleft = 59;
   var downloadTimer = setInterval(function () {
-    document.getElementById("countdown").innerHTML = timeleft;
-    timeleft -= 1;
+    if (timeleft <= 0) {
+      clearInterval(downloadTimer);
+      document.getElementById("countdown").innerHTML = 0;
+    } else {
+      document.getElementById("countdown").innerHTML = timeleft;
+    }
+    timeleft--;
   }, 1000);
   setTimeout(() => {
     FINISH = true;
   }, 60000);
 }
-
-// var timeleft = 10;
-// var downloadTimer = setInterval(function () {
-//   if (timeleft <= 0) {
-//     clearInterval(downloadTimer);
-//     document.getElementById("countdown").innerHTML = "Finished";
-//   } else {
-//     document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
-//   }
-//   timeleft -= 1;
-// }, 1000);
 
 function smashTheRat() {
   SCORE++;
